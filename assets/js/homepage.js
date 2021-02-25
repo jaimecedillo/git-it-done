@@ -11,7 +11,9 @@ var getUserRepos = function (user) {
     // make a request to the url
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
+            console.log(response);
             response.json().then(function (data) {
+                console.log(data);
                 displayRepos(data, user);
             });
         } else {
@@ -26,7 +28,7 @@ var getUserRepos = function (user) {
 
 var formSubmitHandler = function (event) {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
 
     // get value from input element
     var username = nameInputEl.value.trim();
@@ -46,8 +48,8 @@ var displayRepos = function (repos, searchTerm) {
         repoContainerEl.textContent = "No repositories found.";
         return;
     }
-    console.log(repos);
-    console.log(searchTerm);
+    // console.log(repos);
+    // console.log(searchTerm);
     // clear old content
     repoContainerEl.textContent = "";
     repoSearchTerm.textContent = searchTerm;
@@ -103,7 +105,7 @@ var getFeaturedRepos = function (language) {
 
 var buttonClickHandler = (event) => {
     var language = event.target.getAttribute('data-language');
-    console.log(language);
+    // console.log(language);
 
     if (language) {
         getFeaturedRepos(language);
